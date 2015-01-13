@@ -1,0 +1,37 @@
+/*.operation-container {
+  width: 128px;
+  text-align: center;
+}
+
+button {
+  width: 25px;
+  margin: auto;
+}
+*/
+
+.clearfix {
+  overflow: auto;
+}
+/*input {*/
+  /*clear: both;*/
+/*}*/
+
+.operation-container {
+  float: left;
+  width: 42px;
+  height: 60px;
+}
+
+button {
+  width: 100%;
+  height: 30px;
+}
+
+.equal-container {
+  height: 60px;
+}
+
+.equals {
+  height: 60px;
+}
+
