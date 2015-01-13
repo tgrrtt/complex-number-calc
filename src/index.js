@@ -2,6 +2,7 @@ $( document ).ready( function() {
   var current;
   var prev;
   var operator;
+  
   $('.equals').on('click', handleEquals);
 
   $('.add').on('click', function() {
@@ -24,6 +25,17 @@ $( document ).ready( function() {
     applyOperator(operator);
   });
 
+  function handleEquals() {
+    if (prev) {
+      current = $('.input').val();
+      var test = complexNumberCalc(operator, prev, current);
+      prev = undefined;
+      operator = undefined;
+      current = undefined;
+      $('.input').val(test);
+    }
+  }
+
   function applyOperator(operatorType) {
     if (!prev) {
       prev = $('.input').val();
@@ -35,15 +47,5 @@ $( document ).ready( function() {
     } 
   }
 
-  function handleEquals() {
-    if (prev) {
-      current = $('.input').val();
-      var test = complexNumberCalc(operator, prev, current);
-      prev = undefined;
-      operator = undefined;
-      current = undefined;
-      $('.input').val(test);
-    }
-  }
   
 } );

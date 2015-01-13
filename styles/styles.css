@@ -1,20 +1,6 @@
-/*.operation-container {
-  width: 128px;
-  text-align: center;
-}
-
-button {
-  width: 25px;
-  margin: auto;
-}
-*/
-
 .clearfix {
   overflow: auto;
 }
-/*input {*/
-  /*clear: both;*/
-/*}*/
 
 .operation-container {
   float: left;
