@@ -109,16 +109,25 @@ function complexNumberCalc(operator, numberOne, numberTwo) {
     var complexOneB = numberOneReal * numberTwoImaginary; // i
     var complexTwoA = numberOneImaginary * numberTwoReal; // i
     var complexTwoB = 0 - numberOneImaginary * numberTwoImaginary; // i^2
-    var outPutReal = complexOneA + complexTwoB;
-    var outPutImaginary = complexOneB + complexTwoA;
+    outPutReal = complexOneA + complexTwoB;
+    outPutImaginary = complexOneB + complexTwoA;
    }
  
    if (operator === "/") {
     // get conjugate for one divided by
     var conjugate = getConjugate(numberTwo);
     // multiply numberOne with conjugate and numberTwo with conjugate.
-    // reduce those results
-    // divide
+    var topRow = complexNumberCalc('*', numberOne, conjugate);
+    var bottomRow = complexNumberCalc('*', numberTwo, conjugate);
+    var topRowSplit = splitCorrectly(topRow);
+    var bottomRowSplit = splitCorrectly(bottomRow);
+    var stringedSolution
+    if (parseFloat(topRowSplit[1]) > 0) {
+      stringedSolution = topRowSplit[0] + "/" + bottomRowSplit[0] + " + " + topRowSplit[1] + "/" + bottomRowSplit[0];
+    } else {
+      stringedSolution = topRowSplit[0] + "/" + bottomRowSplit[0] + " - " + topRowSplit[1] + "/" + bottomRowSplit[0];
+    }
+    return stringedSolution;
    }
  
   if (outPutImaginary < 0) {
@@ -130,4 +139,4 @@ function complexNumberCalc(operator, numberOne, numberTwo) {
 }
 
 
-// console.log(complexNumberCalc("-", "3.3 + 2.0i", "4.2 + 3.1i"));
+console.log(complexNumberCalc("/", "3 + 2i", "4 - 3i"));
