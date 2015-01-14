@@ -46,10 +46,10 @@ function complexNumberCalc(operator, numberOne, numberTwo) {
     return complexChunkOne + " + " + complexChunkTwo +"i" ;
    }
  
-   if (operator === "/") {
-    outPutReal = numberOneReal / numberTwoReal;
-    outPutImaginary = numberOneImaginary / numberTwoImaginary;
-   }
+   // if (operator === "/") {
+   //  outPutReal = numberOneReal / numberTwoReal;
+   //  outPutImaginary = numberOneImaginary / numberTwoImaginary;
+   // }
  
   if (outPutImaginary < 0) {
     return outPutReal + " - " + Math.abs(outPutImaginary) +"i" ;
