@@ -1,3 +1,19 @@
+function splitCorrectly(complexNumber) {
+  var splitPositive = complexNumber.split('+');
+  var splitNegative = complexNumber.split('-');
+  if (splitPositive[0].length === complexNumber.length) {
+    // flip the sign, so you basically go from '3 - 3i' to '3 + -3i'
+    splitNegative[0] = parseFloat(splitNegative[0]).toString();
+    splitNegative[1] = 0 - parseFloat(splitNegative[1]) + 'i';
+    return splitNegative;
+  } else {
+    // we parse it to a float and back to a string to get rid of extra whitespace
+    splitPositive[0] = parseFloat(splitPositive[0]).toString();
+    splitPositive[1] = parseFloat(splitPositive[1])+'i';
+    return splitPositive;
+  }
+}
+
 function getConjugate(complexNumber) {
   var splitPositive = complexNumber.split('+');
   var splitNegative = complexNumber.split('-');
@@ -16,8 +32,8 @@ function addRealOrImaginary(a, b) {
 
   if (a.charAt(a.length-1) !== 'i') {
     isReal = true;
-    parsedA = parseInt(a);
-    parsedB = parseInt(b);
+    parsedA = parseFloat(a);
+    parsedB = parseFloat(b);
   } else {
     isReal = false;
     parsedA = parseInt(a.substring(0, a.length - 1));
@@ -50,8 +66,6 @@ function subtractRealOrImaginary(a, b) {
   return isReal ? result : result + 'i';
 }
 
-console.log(addRealOrImaginary('3i', '2i'));
-
 function complexNumberCalc(operator, numberOne, numberTwo) {
   var numberOneChunks;
   var numberOneReal;
@@ -62,8 +76,8 @@ function complexNumberCalc(operator, numberOne, numberTwo) {
   var outPutReal;
   var outPutImaginary;
  
-  numberOneChunks = numberOne.split("+");
-  numberTwoChunks = numberTwo.split("+");
+  numberOneChunks = splitCorrectly(numberOne);
+  numberTwoChunks = splitCorrectly(numberTwo);
   numberOneReal = parseFloat(numberOneChunks[0]);
   numberOneImaginary = parseFloat(numberOneChunks[1]);
   numberTwoReal = parseFloat(numberTwoChunks[0]);
@@ -95,9 +109,8 @@ function complexNumberCalc(operator, numberOne, numberTwo) {
     var complexOneB = numberOneReal * numberTwoImaginary; // i
     var complexTwoA = numberOneImaginary * numberTwoReal; // i
     var complexTwoB = 0 - numberOneImaginary * numberTwoImaginary; // i^2
-    var complexChunkOne = complexOneA + complexTwoB;
-    var complexChunkTwo = complexOneB + complexTwoA;
-    return complexChunkOne + " + " + complexChunkTwo +"i" ;
+    var outPutReal = complexOneA + complexTwoB;
+    var outPutImaginary = complexOneB + complexTwoA;
    }
  
    if (operator === "/") {
