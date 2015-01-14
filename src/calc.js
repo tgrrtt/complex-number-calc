@@ -35,8 +35,15 @@ function complexNumberCalc(operator, numberOne, numberTwo) {
    }
  
    if (operator === "*") {
-    outPutReal = numberOneReal * numberTwoReal;
-    outPutImaginary = numberOneImaginary * numberTwoImaginary;
+    // example
+    //(2 + 3i) * (4 + 5i) = 2(4 + 5i) + 3i(4 + 5i)
+    var complexOneA = numberOneReal * numberTwoReal; // real number
+    var complexOneB = numberOneReal * numberTwoImaginary; // i
+    var complexTwoA = numberOneImaginary * numberTwoReal; // i
+    var complexTwoB = 0 - numberOneImaginary * numberTwoImaginary; // i^2
+    var complexChunkOne = complexOneA + complexTwoB;
+    var complexChunkTwo = complexOneB + complexTwoA;
+    return complexChunkOne + " + " + complexChunkTwo +"i" ;
    }
  
    if (operator === "/") {

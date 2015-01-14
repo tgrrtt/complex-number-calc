@@ -10,6 +10,6 @@ describe('calc', function() {
     expect(complexNumberCalc('/', '6 + 6i','2 + 1i')).to.equal('3 + 6i');
   });
   it('should be able to multiply', function() {
-    expect(complexNumberCalc('*', '2 + 2i','2 + 3i')).to.equal('4 + 6i');
+    expect(complexNumberCalc('*', '2 + 3i','4 + 5i')).to.equal('-7 + 22i');
   });
 });
