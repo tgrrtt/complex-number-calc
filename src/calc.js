@@ -1,3 +1,13 @@
+function getConjugate(complexNumber) {
+  var splitPositive = complexNumber.split('+');
+  var splitNegative = complexNumber.split('-');
+  if (splitPositive[0].length === complexNumber.length) {
+    return splitNegative[0] + "+" + splitNegative[1];
+  } else {
+    return splitPositive[0] + "-" + splitPositive[1];
+  }
+}
+
 function complexNumberCalc(operator, numberOne, numberTwo) {
   var numberOneChunks;
   var numberOneReal;

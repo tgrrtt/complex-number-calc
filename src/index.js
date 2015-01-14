@@ -20,10 +20,10 @@ $( document ).ready( function() {
     applyOperator(operator);
   });
 
-  $('.divide').on('click', function() {
-    operator = '/';
-    applyOperator(operator);
-  });
+  // $('.divide').on('click', function() {
+  //   operator = '/';
+  //   applyOperator(operator);
+  // });
 
   function handleEquals() {
     if (prev) {

@@ -13,3 +13,9 @@ describe('calc', function() {
     expect(complexNumberCalc('*', '2 + 3i','4 + 5i')).to.equal('-7 + 22i');
   });
 });
+
+describe('getConjugate', function() {
+  it('should return the conjugate of the passed in complex num', function() {
+    expect(getConjugate('1 + 1i')).to.equal('1 - 1i');
+  })
+})
