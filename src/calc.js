@@ -8,6 +8,50 @@ function getConjugate(complexNumber) {
   }
 }
 
+function addRealOrImaginary(a, b) {
+  var isReal;
+  var parsedA;
+  var parsedB;
+  var result;
+
+  if (a.charAt(a.length-1) !== 'i') {
+    isReal = true;
+    parsedA = parseInt(a);
+    parsedB = parseInt(b);
+  } else {
+    isReal = false;
+    parsedA = parseInt(a.substring(0, a.length - 1));
+    parsedB = parseInt(b.substring(0, b.length - 1));
+  }
+
+  result = parsedA + parsedB;
+
+  return isReal ? result : result + 'i';
+}
+
+function subtractRealOrImaginary(a, b) {
+  var isReal;
+  var parsedA;
+  var parsedB;
+  var result;
+
+  if (a.charAt(a.length-1) !== 'i') {
+    isReal = true;
+    parsedA = parseInt(a);
+    parsedB = parseInt(b);
+  } else {
+    isReal = false;
+    parsedA = parseInt(a.substring(0, a.length - 1));
+    parsedB = parseInt(b.substring(0, b.length - 1));
+  }
+  
+  result = parsedA - parsedB;
+
+  return isReal ? result : result + 'i';
+}
+
+console.log(addRealOrImaginary('3i', '2i'));
+
 function complexNumberCalc(operator, numberOne, numberTwo) {
   var numberOneChunks;
   var numberOneReal;
@@ -56,10 +100,13 @@ function complexNumberCalc(operator, numberOne, numberTwo) {
     return complexChunkOne + " + " + complexChunkTwo +"i" ;
    }
  
-   // if (operator === "/") {
-   //  outPutReal = numberOneReal / numberTwoReal;
-   //  outPutImaginary = numberOneImaginary / numberTwoImaginary;
-   // }
+   if (operator === "/") {
+    // get conjugate for one divided by
+    var conjugate = getConjugate(numberTwo);
+    // multiply numberOne with conjugate and numberTwo with conjugate.
+    // reduce those results
+    // divide
+   }
  
   if (outPutImaginary < 0) {
     return outPutReal + " - " + Math.abs(outPutImaginary) +"i" ;

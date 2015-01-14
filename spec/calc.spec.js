@@ -19,3 +19,19 @@ describe('getConjugate', function() {
     expect(getConjugate('1 + 1i')).to.equal('1 - 1i');
   })
 })
+
+describe('real and imaginary operators', function() {
+  describe('addRealOrImaginary', function() {
+    it('add real or imaginary numbers', function() {
+      expect(addRealOrImaginary('3i', '2i')).to.equal('5i');
+      expect(addRealOrImaginary('3', '1')).to.equal(4);
+    })
+  })
+  describe('subtractRealOrImaginary', function() {
+    it('subtract real or imaginary numbers', function() {
+      expect(subtractRealOrImaginary('3i', '2i')).to.equal('1i');
+      expect(subtractRealOrImaginary('3', '1')).to.equal(2);
+    })
+  })
+})
+
