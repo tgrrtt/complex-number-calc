@@ -114,6 +114,7 @@ function complexNumberCalc(operator, numberOne, numberTwo) {
    }
  
    if (operator === "/") {
+    // note: this currently doesnt reduce the answer
     // get conjugate for one divided by
     var conjugate = getConjugate(numberTwo);
     // multiply numberOne with conjugate and numberTwo with conjugate.
@@ -137,6 +138,3 @@ function complexNumberCalc(operator, numberOne, numberTwo) {
   }
 
 }
-
-
-console.log(complexNumberCalc("/", "3 + 2i", "4 - 3i"));
